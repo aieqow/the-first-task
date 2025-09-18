@@ -1,0 +1,18 @@
+import java.util.LinkedList;
+
+public class Main {
+    public static void main(String[] args) {
+        LinkedList<Integer> stack = new LinkedList<>(); // Список как стек
+        
+        // Добавляем элементы (LIFO)
+        stack.push(10);
+        stack.push(20);
+        stack.push(30);
+        
+        System.out.println("Верхний: " + stack.peek()); // 30
+        
+        // Удаляем элементы (LIFO)
+        stack.pop();
+        System.out.println("Новый верхний: " + stack.peek()); // 20
+    }
+}

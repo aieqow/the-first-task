@@ -1,0 +1,17 @@
+public class Main {
+    public static void main(String[] args) {
+        int[] stack = new int[5]; // Массив для стека
+        int top = -1;             // Указатель верхнего элемента (-1, значит, пусто)
+        
+        // Добавляем элементы (LIFO)
+        stack[++top] = 10; // top=0
+        stack[++top] = 20; // top=1  
+        stack[++top] = 30; // top=2
+        
+        System.out.println("Верхний: " + stack[top]); // 30
+        
+        // Удаляем верхний элемент (LIFO)
+        top--; // top=1
+        System.out.println("Новый верхний: " + stack[top]); // 20
+    }
+}

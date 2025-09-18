@@ -1,0 +1,35 @@
+#include <iostream>
+using namespace std;
+
+struct Node {
+    int data;
+    Node* next;
+};
+
+class Stack {
+    Node* top = nullptr; // Вершина стека
+public:
+    void push(int x) {
+        Node* newNode = new Node{x, top}; // Создание нового узла
+        top = newNode;                    // Обновление верхнего элемента
+    }
+    void pop() {
+        if (top) {
+            Node* temp = top; // Запоминаем текущий верхний элемент
+            top = top->next;  // Перемещение данный элемент
+            delete temp;      // Удаление старый верхний элемент
+        }
+    }
+    int peek() { return top ? top->data : -1; } // Возвращение данных верхнего элемента
+    bool empty() { return top == nullptr; }     // Проверка на пустоту
+};
+
+int main() {
+    Stack s;
+    s.push(10); s.push(20); s.push(30);
+    cout << "Верхний: " << s.peek() << endl; // 30
+    s.pop();
+    cout << "Новый верхний: " << s.peek();   // 20
+    return 0;
+}
+
